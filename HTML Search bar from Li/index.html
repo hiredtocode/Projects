@@ -1,0 +1,168 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- <link rel="stylesheet" href="./style.css" /> -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css"
+			integrity="sha512-t38vG/f94E72wz6pCsuuhcOPJlHKwPy+PY+n1+tJFzdte3hsIgYE7iEpgg/StngunGszVMrRfvwZinrza0vMTA=="
+			crossorigin="anonymous"
+		/>
+		<title>Filterable List</title>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<h4 class="center-align">Search Methods or Functions</h4>
+				<input type="text" id="filterInput" placeholder="Search names..." />
+				<ul class="collection with-header" id="names">
+					<li class="collection-header">
+						<h7>Array</h7>
+					</li>
+					<li class="collection-item"><a href="#">Array.from()</a></li>
+					<li class="collection-item"><a href="#">Array.isArray()</a></li>
+					<li class="collection-item"><a href="#">Array.of() </a></li>
+					<li class="collection-item"><a href="#">Array.prototype.concat()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.copyWithin()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.entries()</a></li>
+					<li class="collection-item"><a href="#">Array.prototype.every()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.fill()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.filter()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.find()</a></li>
+					<li class="collection-item"><a href="#">Array.prototype.findIndex()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.flat()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.flatMap()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.forEach()</a></li>
+					<li class="collection-item"><a href="#">Array.prototype.includes()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.indexOf()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.join()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.keys()</a></li>
+					<li class="collection-item"><a href="#">Array.prototype.lastIndexOf()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.map()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.pop()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.push()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.reduce()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.reduceRight()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.reverse()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.shift()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.slice()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.some()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.sort()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.splice()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.toLocaleString()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.toSource()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.toString()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.unshift()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype.values()</a></li>
+          <li class="collection-item"><a href="#">Array.prototype[@@iterator]()</a></li>
+          <li class="collection-item"><a href="#">get Array[@@species]</a></li>
+
+          <li class="collection-header">
+						<h7>Array Properties</h7>
+					</li>
+					<li class="collection-item"><a href="#">Array.prototype.length</a></li>
+					<li class="collection-item"><a href="#">Array.prototype[@@unscopables]</a></li>
+
+					<li class="collection-header">
+            <h7>Function</h7>
+					</li>
+          <li class="collection-item"><a href="#">Function.prototype.apply()</a></li>
+          <li class="collection-item"><a href="#">Function.prototype.bind()</a></li>
+          <li class="collection-item"><a href="#">Function.prototype.call()</a></li>
+          <li class="collection-item"><a href="#">Function.prototype.toString()</a></li>
+
+          <li class="collection-header">
+            <h7>Function Properties</h7>
+          </li>
+          <li class="collection-item"><a href="#">Function.arguments</a></li>
+          <li class="collection-item"><a href="#">Function.caller</a></li>
+          <li class="collection-item"><a href="#">Function.length</a></li>
+          <li class="collection-item"><a href="#">Function.name</a></li>
+
+          <li class="collection-header">
+						<h7>Object</h7>
+					</li>
+          <li class="collection-item"><a href="#">Object.assign()</a></li>
+          <li class="collection-item"><a href="#">Object.create()</a></li>
+          <li class="collection-item"><a href="#">Object.defineProperties()</a></li>
+          <li class="collection-item"><a href="#">Object.defineProperty()</a></li>
+          <li class="collection-item"><a href="#">Object.entries()</a></li>
+          <li class="collection-item"><a href="#">Object.freeze()</a></li>
+          <li class="collection-item"><a href="#">Object.fromEntries()</a></li>
+          <li class="collection-item"><a href="#">Object.getOwnPropertyDescriptor()</a></li>
+          <li class="collection-item"><a href="#">Object.getOwnPropertyDescriptors()</a></li>
+          <li class="collection-item"><a href="#">Object.getOwnPropertyNames()</a></li>
+          <li class="collection-item"><a href="#">Object.getOwnPropertySymbols()</a></li>
+          <li class="collection-item"><a href="#">Object.getPrototypeOf()</a></li>
+          <li class="collection-item"><a href="#">Object.is()</a></li>
+          <li class="collection-item"><a href="#">Object.isExtensible()</a></li>
+          <li class="collection-item"><a href="#">Object.isFrozen()</a></li>
+          <li class="collection-item"><a href="#">Object.isSealed()</a></li>
+          <li class="collection-item"><a href="#">Object.keys()</a></li>
+          <li class="collection-item"><a href="#">Object.preventExtensions()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.__defineGetter__()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.__defineSetter__()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.__lookupGetter__()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.__lookupSetter__()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.hasOwnProperty()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.isPrototypeOf()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.propertyIsEnumerable()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.toLocaleString()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.toString()</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.valueOf()</a></li>
+          <li class="collection-item"><a href="#">Object.seal()</a></li>
+          <li class="collection-item"><a href="#">Object.setPrototypeOf()</a></li>
+          <li class="collection-item"><a href="#">Object.values()</a></li>
+
+          <li class="collection-header">
+            <h7>Object Properties</h7>
+          </li>
+          <li class="collection-item"><a href="#">Object.prototype.__proto__</a></li>
+          <li class="collection-item"><a href="#">Object.prototype.constructor</a></li>
+
+				</ul>
+			</div>
+			<script>
+				// Get input element
+				let filterInput = document.getElementById('filterInput');
+				// Add event listener
+				filterInput.addEventListener('keyup', filterNames);
+
+				function filterNames() {
+					// Get value of input
+					let filterValue = document
+						.getElementById('filterInput')
+						.value.toUpperCase();
+
+					// Get names ul
+					let ul = document.getElementById('names');
+					// Get li from ul
+					let li = ul.querySelectorAll('li.collection-item');
+
+					// Loop through collection-item li
+					for (let i = 0; i < li.length; i++) {
+						let a = li[i].getElementsByTagName('a')[0];
+						// if matched
+						if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+							li[i].style.display = '';
+						} else {
+							li[i].style.display = 'none';
+						}
+					}
+				}
+			</script>
+		</main>
+		<footer>
+			<!-- <ul>
+        <li><a href=""></a></li>
+        <li>&copy; 2020 JH</li>
+        <li>All rights reserved</li>
+      </ul> -->
+		</footer>
+		<!-- <script src="./app.js"></script> -->
+	</body>
+</html>
