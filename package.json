@@ -1,0 +1,27 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "main": "puppeteer.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "jsonfile": "^6.0.1",
+    "puppeteer": "^5.2.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiredtocode/projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiredtocode/projects/issues"
+  },
+  "homepage": "https://github.com/hiredtocode/projects#readme",
+  "description": ""
+}
