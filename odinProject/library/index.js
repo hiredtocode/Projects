@@ -60,6 +60,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
   // clear button
   function clear () {
     localStorage.clear();
+    location.reload();
   }
   // button event listeners
   // document.getElementById( 'add-book' ).addEventListener( 'click', save );
@@ -115,23 +116,41 @@ document.addEventListener( 'DOMContentLoaded', function () {
     const bookAuthor = document.createElement( 'span' );
     const bookPages = document.createElement( 'span' );
     const deleteButton = document.createElement( 'span' );
+    const readButton = document.createElement( 'section' );
+    const label = document.createElement( 'label' );
+    const input = document.createElement( 'input' );
+    const div = document.createElement( 'div' );
+
 
     // add content
     deleteButton.textContent = 'delete';
+    readButton.textContent = '';
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
     bookPages.textContent = book.pages;
-
+    input.type = 'checkbox';
+    label.htmlFor = 'read';
+    label.textContent = "Finished reading?"
+    //TODO checked box needs to appear when it's set in the form
+    //TODO when checked change background to green
     // add classes
+    //TODO organize how it looks as columns (textwrap or set column width)
     bookTitle.classList.add('bookTitle');
     bookAuthor.classList.add('bookAuthor');
     bookPages.classList.add('bookPages');
+    readButton.classList.add('container');
     deleteButton.classList.add( 'delete' );
+    input.classList.add( 'read' );
+    input.setAttribute( 'id', 'read' );
+    div.classList.add( 'read' );
 
     // insert elements in to the DOM
     li.appendChild(bookTitle); // orders matter
     li.appendChild(bookAuthor); // orders matter
     li.appendChild(bookPages); // orders matter
+    li.appendChild(div); // orders matter
+    div.appendChild(label); // orders matter
+    div.appendChild(input); // orders matter
     li.appendChild( deleteButton ); // orders matter
 
     // append li to the DOM now
@@ -213,3 +232,5 @@ document.addEventListener( 'DOMContentLoaded', function () {
     }
   } );
 } );
+
+

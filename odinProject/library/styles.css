@@ -107,7 +107,7 @@ h1, h2{
   margin: 20px 10px;
   display: flex;
   justify-content: space-between;
-  
+
 }
 
 #book-list li:hover{
@@ -122,6 +122,15 @@ h1, h2{
   cursor: pointer;
   color: white;
 }
+
+/* .read{
+  float: right;
+  background: #9361bf;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}*/
 
 .delete:hover{
   background: red;
@@ -203,26 +212,20 @@ form{
     flex-direction: column;
      justify-content: center;
 }
-.read{
-    position: relative;
-  display: flex;
-  margin: 5px auto;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+/* .read{
+  float: right;
+  background: #9361bf;
+  padding: 6px;
   border-radius: 4px;
-  box-sizing: border-box;
-  width: 80%;
-  float: left;
-  flex-direction: row;
-  justify-content: left;
-}
+  cursor: pointer;
+  color: white;
+} */
 
-.read input {
+/* .read input {
   margin-left: 20px;
   block-size: 1.5em;
 
-}
+} */
 
 button{
   position: relative;
@@ -379,5 +382,12 @@ a:hover span:nth-child(4){
 .bookPages::before {
   content: "Pages:"
 }
+.read {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 
-li
+input.read {
+  margin: 5px;
+}
