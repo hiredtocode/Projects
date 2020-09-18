@@ -21,14 +21,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
   //     return;
   //   }
 
-  //   // input values
-  //   let book = {
-  //     title: document.getElementById( 'title' ).value,
-  //     author: document.getElementById( 'author' ).value,
-  //     pages: document.getElementById( 'pages' ).value,
-  //     read: document.getElementById( 'read' ).value
-  //   };
-
   //   // if there is nothing saved at the start then save an empty array
   //   if ( localStorage.getItem( 'data' ) === null ) {
   //     localStorage.setItem( 'data', '[]' );
@@ -102,81 +94,89 @@ document.addEventListener( 'DOMContentLoaded', function () {
   const addBookButton = document.getElementById( 'add-book' );
 
   addBookButton.addEventListener( 'click', function ( event ) {
-    // prevent default of refreshing the page when clicked
-    event.preventDefault();
-    // get the value that was typed in the input field
-    const title = document.querySelector( '#title' ).value;
-    const author = document.querySelector('#author').value;
-    const pages = document.querySelector('#pages').value;
-     //
-    let book = {
+		// prevent default of refreshing the page when clicked
+		event.preventDefault();
+		// get the value that was typed in the input field
+		const title = document.querySelector('#title').value;
+		const author = document.querySelector('#author').value;
+		const pages = document.querySelector('#pages').value;
+		//
+		let book = {
+			id: Date.now(),
+			title: title,
+			author: author,
+			pages: pages,
+		};
+
+
+
+		myLibrary.push(book);
+		document.querySelector('form').reset(); // clear the form after submitting.
+		//   // if there is nothing saved at the start then save an empty array
+		//   if ( localStorage.getItem( 'data' ) === null ) {
+		//     localStorage.setItem( 'data', '[]' );
+		// saving to localStorage
+		localStorage.setItem('BookList', JSON.stringify(myLibrary));
+
+		//create elements
+		const li = document.createElement('li');
+		const bookTitle = document.createElement('span');
+		const bookAuthor = document.createElement('span');
+		const bookPages = document.createElement('span');
+		const deleteButton = document.createElement('span');
+		const readButton = document.createElement('section');
+		const label = document.createElement('label');
+		const input = document.createElement('input');
+		const div = document.createElement('div');
+		const article = document.createElement('article');
+		const ul = document.createElement('ul');
+
+    let readId = {
       id: Date.now(),
-      title: title,
-      author: author,
-      pages: pages
-    }
+    };
+    console.log( readId.id );
 
-    myLibrary.push( book );
-    document.querySelector( 'form' ).reset(); // clear the form after submitting.
-
-    // saving to localStorage
-    localStorage.setItem( 'BookList', JSON.stringify( myLibrary ) );
-
-    //create elements
-    const li = document.createElement( 'li' );
-    const bookTitle = document.createElement( 'span' );
-    const bookAuthor = document.createElement( 'span' );
-    const bookPages = document.createElement( 'span' );
-    const deleteButton = document.createElement( 'span' );
-    const readButton = document.createElement( 'section' );
-    const label = document.createElement( 'label' );
-    const input = document.createElement( 'input' );
-    const div = document.createElement( 'div' );
-    const article = document.createElement( 'article' );
-    const ul = document.createElement( 'ul' );
-
-
-    // add content
-    deleteButton.textContent = 'delete';
-    readButton.textContent = '';
-    bookTitle.textContent = book.title;
-    bookAuthor.textContent = book.author;
+		// add content
+		deleteButton.textContent = 'delete';
+		readButton.textContent = '';
+		bookTitle.textContent = book.title;
+		bookAuthor.textContent = book.author;
     bookPages.textContent = book.pages;
     input.type = 'checkbox';
-    label.htmlFor = 'read';
-    label.textContent = "Finished reading?"
-
-    //TODO when checked change background to green
-    // add classes
-
-    bookTitle.classList.add('bookTitle');
-    bookAuthor.classList.add('bookAuthor');
-    bookPages.classList.add('bookPages');
-    readButton.classList.add('container');
-    deleteButton.classList.add( 'delete' );
-    input.classList.add( 'read' );
-    input.setAttribute( 'id', 'read' );
-    div.classList.add( 'read' );
-    article.classList.add( 'article' );
-    ul.classList.add( 'list' );
-
-    // insert elements in to the DOM
-    article.appendChild(ul); // orders matter
-    ul.appendChild(li); // orders matter
-    li.appendChild(bookTitle); // orders matter
-    li.appendChild(bookAuthor); // orders matter
-    li.appendChild(bookPages); // orders matter
-    li.appendChild(div); // orders matter
-    div.appendChild(label); // orders matter
-    div.appendChild(input); // orders matter
-    li.appendChild( deleteButton ); // orders matter
-
-    // append li to the DOM now
-    list.appendChild(article);
+    label.htmlFor = readId.id;
+    label.textContent = 'Finished reading?';
 
 
 
-  } );
+		//TODO when checked change background to green
+		// add classes
+
+
+		bookTitle.classList.add('bookTitle');
+		bookAuthor.classList.add('bookAuthor');
+		bookPages.classList.add('bookPages');
+		readButton.classList.add('container');
+		deleteButton.classList.add('delete');
+		input.classList.add('read');
+		input.setAttribute('id', readId.id);
+		div.classList.add('read');
+		article.classList.add('article');
+		ul.classList.add('list');
+
+		// insert elements in to the DOM
+		article.appendChild(ul); // orders matter
+		ul.appendChild(li); // orders matter
+		li.appendChild(bookTitle); // orders matter
+		li.appendChild(bookAuthor); // orders matter
+		li.appendChild(bookPages); // orders matter
+		li.appendChild(div); // orders matter
+		div.appendChild(label); // orders matter
+		div.appendChild(input); // orders matter
+		li.appendChild(deleteButton); // orders matter
+
+		// append li to the DOM now
+		list.appendChild(article);
+	} );
 
   // hide books
 
@@ -192,15 +192,15 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
   // Read book state
 
-  // const hideBox = document.querySelector( '#hide' );
+  const readBox = document.querySelector( '#read' );
 
-  // hideBox.addEventListener( 'change', function ( event ) {
-  //   if ( hideBox.checked ) {
-  //     list.style.display = "none";
-  //   } else {
-  //     list.style.display = "initial";
-  //   }
-  // } );
+  readBox.addEventListener( 'change', function ( event ) {
+    if ( readBox.checked ) {
+      list.style.Color = blue;
+    } else {
+      list.style.background = white;
+    }
+  } );
 
   // filter books (search function)
   // TODO add highlighting text while searching
@@ -231,7 +231,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
   // TODO find out what "modalBox" does.
   var modal = document.getElementsByClassName( 'modal' )[0];
   var open = document.getElementsByClassName( 'openModal' )[0];
-  var close = document.getElementsByClassName( 'closeModal' )[0];
+
 
   open.onclick = function () {
     modal.style.display = 'block';
