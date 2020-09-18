@@ -9,7 +9,7 @@
   </head>
   <body>
 
-    <div id="wrapper">
+    <div id="wrapper" class="wrapper">
 
       <header>
         <div id="page-banner">
@@ -38,35 +38,52 @@
   <span></span>
   +
 </a>
-      </div>
+<!-- hide box checkbox -->
+<!-- <input type="checkbox" id='hide'>
+<label for="hide">Hide</label> -->
+
+</div>
 
 
-
-      <div id="book-list">
-
-        <ul id="list">
+<main class="main">
+        <article class="article">
+        <ul class="list">
           <li>
             <span class="bookTitle">Clean Code: A Handbook of Agile Software Craftsmanship</span>
             <span class="bookAuthor">Someone</span>
             <span class="bookPages">124</span>
+            <div class="read">
+            <!-- BUG id need to change everytime. -->
+              <label for="read">Finished reading?</label>
+            <input type="checkbox" class="read" id="read"></div>
             <span class="delete">delete</span>
           </li>
+        </ul>
+        </article>
+        <article class="article">
+        <ul class="list">
           <li>
             <span class="bookTitle">A different book</span>
             <span class="bookAuthor">Someone else</span>
             <span class="bookPages">112</span>
+            <div class="read"><label for="read">Finished reading?</label><input type="checkbox" class="read" id="read"></div>
             <span class="delete">delete</span>
           </li>
+        </ul>
+        </article>
+        <article class="article">
+        <ul class="list">
           <li>
             <span class="bookTitle">The third book</span>
             <span class="bookAuthor">Someone</span>
             <span class="bookPages">33</span>
-            
+            <div class="read"><label for="read">Finished reading?</label><input type="checkbox" class="read" id="read"></div>
             <span class="delete">delete</span>
           </li>
-
         </ul>
-      </div>
+        </article>
+
+</main>
       <div class="modal">
         <div class="modal-box">
 
@@ -86,7 +103,7 @@
 
             <div class="buttons">
               <button id="add-book" class="btn" type="submit">Add</button>
-              <button class="btn closeModal">Close</button>
+              <!-- <button class="btn closeModal">Close</button> -->
             </div>
         </div>
       </div>

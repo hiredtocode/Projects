@@ -76,14 +76,26 @@ document.addEventListener( 'DOMContentLoaded', function () {
   };
 
   // delete button
-  const list = document.querySelector( '#book-list ul' );
+  // const list = document.querySelector( '#book-list ul' );
+
+  // list.addEventListener( 'click', function ( event ) {
+  //   if ( event.target.className === 'delete' ) {
+  //     const li = event.target.parentElement;
+  //     list.removeChild( li );
+  //   }
+  // } );
+
+  // delete button
+  const list = document.querySelector( '.wrapper main' );
 
   list.addEventListener( 'click', function ( event ) {
     if ( event.target.className === 'delete' ) {
-      const li = event.target.parentElement;
+      const li = event.target.closest('.article');
       list.removeChild( li );
     }
   } );
+
+
 
   // add book-list
   const myLibrary = [];
@@ -120,6 +132,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
     const label = document.createElement( 'label' );
     const input = document.createElement( 'input' );
     const div = document.createElement( 'div' );
+    const article = document.createElement( 'article' );
+    const ul = document.createElement( 'ul' );
 
 
     // add content
@@ -131,10 +145,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
     input.type = 'checkbox';
     label.htmlFor = 'read';
     label.textContent = "Finished reading?"
-    //TODO checked box needs to appear when it's set in the form
+
     //TODO when checked change background to green
     // add classes
-    //TODO organize how it looks as columns (textwrap or set column width)
+
     bookTitle.classList.add('bookTitle');
     bookAuthor.classList.add('bookAuthor');
     bookPages.classList.add('bookPages');
@@ -143,8 +157,12 @@ document.addEventListener( 'DOMContentLoaded', function () {
     input.classList.add( 'read' );
     input.setAttribute( 'id', 'read' );
     div.classList.add( 'read' );
+    article.classList.add( 'article' );
+    ul.classList.add( 'list' );
 
     // insert elements in to the DOM
+    article.appendChild(ul); // orders matter
+    ul.appendChild(li); // orders matter
     li.appendChild(bookTitle); // orders matter
     li.appendChild(bookAuthor); // orders matter
     li.appendChild(bookPages); // orders matter
@@ -154,7 +172,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
     li.appendChild( deleteButton ); // orders matter
 
     // append li to the DOM now
-    list.appendChild( li );
+    list.appendChild(article);
 
 
 
@@ -163,6 +181,19 @@ document.addEventListener( 'DOMContentLoaded', function () {
   // hide books
 
   // const hideBox = document.querySelector( '#hide' );
+
+  // hideBox.addEventListener( 'change', function ( event ) {
+  //   if ( hideBox.checked ) {
+  //     list.style.display = "none";
+  //   } else {
+  //     list.style.display = "initial";
+  //   }
+  // } );
+
+  // Read book state
+
+  // const hideBox = document.querySelector( '#hide' );
+
   // hideBox.addEventListener( 'change', function ( event ) {
   //   if ( hideBox.checked ) {
   //     list.style.display = "none";
@@ -206,9 +237,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
     modal.style.display = 'block';
   };
 
-  close.onclick = function () {
-    modal.style.display = 'none';
-  };
+  // close.onclick = function () {
+  //   modal.style.display = 'none';
+  // };
 
   window.onclick = function ( e ) {
     if ( e.target == modal ) {
