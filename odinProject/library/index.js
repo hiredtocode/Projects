@@ -99,7 +99,11 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		// get the value that was typed in the input field
 		const title = document.querySelector('#title').value;
 		const author = document.querySelector('#author').value;
-		const pages = document.querySelector('#pages').value;
+    const pages = document.querySelector( '#pages' ).value;
+
+    if ( title === "" || author === "" || pages === "" ) {
+      return;
+    }
 		//
 		let book = {
 			id: Date.now(),
