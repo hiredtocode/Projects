@@ -1,52 +1,6 @@
 
-
-let dataList = document.querySelector( "#list" );
-
-function Book () {
-
-}
 document.addEventListener( 'DOMContentLoaded', function () {
-	// function save ( event ) {
-	//   // to stop the form submitting
-	//   event.preventDefault();
 
-	//   // exit out of this function if empty input is detected
-	//   if (
-	//     document.getElementById( "title" ).value.length === 0 ||
-	//     document.getElementById( "author" ).value.length === 0 ||
-	//     document.getElementById( "pages" ).value.length === 0 ||
-	//     document.getElementById( "read" ).value.length === 0
-	//   ) {
-	//     return;
-	//   }
-
-	//   // if there is nothing saved at the start then save an empty array
-	//   if ( localStorage.getItem( 'data' ) === null ) {
-	//     localStorage.setItem( 'data', '[]' );
-	//   }
-
-	//   // get old data and slap it to the new data
-	//   let oldData = JSON.parse( localStorage.getItem( 'data' ) );
-	//   oldData.push( book );
-
-	//   // save the old + new data to local storage
-	//   localStorage.setItem( 'data', JSON.stringify( oldData ) );
-
-	//   // to clear the form for the next entry
-	//   document.querySelector( 'form' ).reset();
-
-	//   var output = '';
-	//   for ( let i = 0; i < oldData.length; i++ ) {
-	//     output += '<li>' + oldData[i] + '</li>';
-
-	//   }
-
-	//   if ( localStorage.getItem( 'data' ) !== null ) {
-	//     dataList.innerHTML = localStorage.getItem( 'data' );
-
-	//   }
-
-	// };
 
 	// clear button
 	function clear() {
@@ -115,15 +69,18 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	addBookButton.addEventListener('click', function (event) {
 		// prevent default of refreshing the page when clicked
 		event.preventDefault();
+
 		// get the value that was typed in the input field
 		const title = document.querySelector('#title').value;
 		const author = document.querySelector('#author').value;
 		const pages = document.querySelector('#pages').value;
 
+		// Checking if input fields are empty
 		if (title === '' || author === '' || pages === '') {
 			return;
 		}
-		//
+
+		// book object
 		let book = {
 			id: Date.now(),
 			title: title,
@@ -131,17 +88,13 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			pages: pages,
 		};
 
-		myLibrary.push(book);
-		console.log(myLibrary);
 
-		// clear the form after submitting.
+		// clear the form inputs after submitting.
 		const formInputField = document.querySelectorAll('.modal_input');
 		formInputField.forEach( ( input ) => ( input.value = '' ) );
-		
-		//   // if there is nothing saved at the start then save an empty array
-		//   if ( localStorage.getItem( 'data' ) === null ) {
-		//     localStorage.setItem( 'data', '[]' );
-		// saving to localStorage
+
+		// saving to myLibrary and to localStorage
+		myLibrary.push(book);
 		localStorage.setItem('BookList', JSON.stringify(myLibrary));
 
 		//create elements
@@ -157,10 +110,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		const article = document.createElement('article');
 		const ul = document.createElement('ul');
 
+		// Make unique ID when add button is clicked
 		let readId = {
 			id: Date.now(),
 		};
-		console.log(readId.id);
 
 		// add content
 		deleteButton.textContent = 'delete';
@@ -197,20 +150,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		li.appendChild(deleteButton); // orders matter
 
 		// append li to the DOM now
-		main.appendChild(article);
+		main.appendChild( article );
+
 	});
 
-	// hide books
-
-	// const hideBox = document.querySelector( '#hide' );
-
-	// hideBox.addEventListener( 'change', function ( event ) {
-	//   if ( hideBox.checked ) {
-	//     list.style.display = "none";
-	//   } else {
-	//     list.style.display = "initial";
-	//   }
-	// } );
 
 	// filter books (search function)
 	// TODO add highlighting text while searching
@@ -219,8 +162,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	searchBar.addEventListener('keyup', function (event) {
 		// turning the value to lower case
 		const term = event.target.value.toLowerCase();
-		// books = li
-		const books = main.getElementsByTagName('li');
+		// books = article
+		const books = main.getElementsByClassName('article');
 
 		Array.from(books).forEach(function (book) {
 			const title = book.firstElementChild.textContent;
@@ -232,7 +175,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		});
 	});
 
-	// modal button
+	// modal
 
 	var modal = document.getElementsByClassName('modal')[0];
 	var open = document.getElementsByClassName('openModal')[0];
@@ -241,15 +184,12 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		modal.style.display = 'block';
 	};
 
-	// close.onclick = function () {
-	//   modal.style.display = 'none';
-	// };
-
 	window.onclick = function (e) {
 		if (e.target == modal) {
 			modal.style.display = 'none';
 		}
 	};
+	// End of modal
 
 	// tabbed content (footer)
 	const tabs = document.querySelector('.tabs');
@@ -265,7 +205,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				}
 			});
 		}
-	});
+	} );
+	// End of footer
 } );
 
 
