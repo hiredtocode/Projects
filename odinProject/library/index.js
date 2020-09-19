@@ -7,8 +7,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		localStorage.clear();
 		location.reload();
 	}
-	// button event listeners
-	// document.getElementById( 'add-book' ).addEventListener( 'click', save );
 
 	document.getElementById('clear').addEventListener('click', clear);
 
@@ -22,7 +20,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		}
 	});
 
-	// Read book state
+	// Read book state (green background)
 
 	const DynamicCheckboxes = {
 		checkboxes: document.querySelectorAll('.article li input[type="checkbox"]'),
@@ -51,16 +49,6 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	}
 
 	DynamicCheckboxes.initialize();
-
-
-	// list.addEventListener('change', function (event) {
-	//   if (readBoxId.checked) {
-	// 		console.log('checked');
-	// 		console.log('readbox', readBoxId);
-	// 	} else {
-	// 		console.log('unchecked');
-	// 	}
-	// });
 
 	// add book-list
 	const myLibrary = [];
@@ -156,23 +144,41 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 
 	// filter books (search function)
-	// TODO add highlighting text while searching
 	const searchBar = document.forms['search-books'].querySelector('input');
 
 	searchBar.addEventListener('keyup', function (event) {
 		// turning the value to lower case
 		const term = event.target.value.toLowerCase();
 		// books = article
-		const books = main.getElementsByClassName('article');
+		const books = main.querySelectorAll( 'article' );
+		if ( event.target.value === "" ) return;
 
-		Array.from(books).forEach(function (book) {
+		if (searchBar.target === '') console.log('done');
+		console.log( "ss",searchBar );
+			books.forEach(function (book) {
 			const title = book.firstElementChild.textContent;
 			if (title.toLowerCase().indexOf(term) !== -1) {
 				book.style.display = 'block';
 			} else {
 				book.style.display = 'none';
 			}
-		});
+
+			// TODO add highlighting text while searching
+
+				let searchExpression = new RegExp(term, 'ig');
+				let matches = title.match(searchExpression);
+				if (matches) {
+					$('p').html(
+						title.replace(searchExpression, (match) => {
+							return `<span class="highlight">${match}</span>`;
+
+						})
+						);
+						console.log('searchbar', term);
+						console.log('matches', matches);
+						console.log('searchEXP', searchExpression);
+				}
+		} );
 	});
 
 	// modal

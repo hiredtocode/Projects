@@ -141,7 +141,7 @@ input.read {
 
 .highlight{
   background: yellow;
-  color: red;
+  font-weight: bold;
 }
 
 #tabbed-content li{
